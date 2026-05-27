@@ -1,0 +1,83 @@
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* ─── Barra de búsqueda ──────────────────────────────────────────────────── */
+.search-bar { display: flex; gap: .5rem; flex: 1; max-width: 400px; }
+
+.search-input {
+    flex: 1;
+    padding: .5rem .875rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: .875rem;
+    color: var(--text-primary);
+    background-color: var(--surface);
+    transition: border-color .15s, box-shadow .15s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+}
+
+/* ─── Tabla ──────────────────────────────────────────────────────────────── */
+.table-container {
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    overflow-x: auto;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .875rem;
+}
+
+.users-table th {
+    padding: .75rem 1rem;
+    text-align: left;
+    font-size: .72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--text-secondary);
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.users-table td {
+    padding: .875rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.users-table tr:last-child td { border-bottom: none; }
+.users-table tr:hover td      { background-color: var(--background); }
+
+.actions { display: flex; gap: .5rem; }
+
+/* ─── Badges ─────────────────────────────────────────────────────────────── */
+.badge {
+    display: inline-block;
+    padding: .2rem .6rem;
+    border-radius: 9999px;
+    font-size: .72rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge-role-admin   { background-color: #ede9fe; color: #6d28d9; }
+.badge-role-user    { background-color: #dbeafe; color: #1d4ed8; }
+
+.badge-status-active   { background-color: #dcfce7; color: #15803d; }
+.badge-status-inactive { background-color: #fee2e2; color: #b91c1c; }

@@ -1,0 +1,34 @@
+# Configuración sensible
+application.properties
+application.yml
+.env
+*.env
+
+# Java / Maven
+*.class
+*.jar
+*.war
+*.ear
+target/
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDE
+.idea/
+*.iml
+*.iws
+.vscode/settings.json
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (por si acaso)
+node_modules/
+npm-debug.log
+
+# Logs
+*.log
+logs/

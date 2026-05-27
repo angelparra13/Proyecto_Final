@@ -1,0 +1,96 @@
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: .75rem;
+}
+
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.card-icon-blue   { background-color: #dbeafe; }
+.card-icon-green  { background-color: #dcfce7; }
+.card-icon-purple { background-color: #f3e8ff; }
+
+.card-label {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--text-secondary);
+}
+
+.card-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: .25rem;
+}
+
+/* ─── Sección info ───────────────────────────────────────────────────────── */
+.info-section {
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+}
+
+.info-section h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.info-row {
+    display: flex;
+    padding: .75rem 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.info-row:last-child { border-bottom: none; }
+
+.info-key {
+    font-weight: 500;
+    color: var(--text-secondary);
+    min-width: 180px;
+}
+
+.info-value { color: var(--text-primary); }
+
+/* ─── Badges de estado ───────────────────────────────────────────────────── */
+.status-badge {
+    display: inline-block;
+    padding: .2rem .6rem;
+    border-radius: 9999px;
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+.status-active   { background-color: #dcfce7; color: #15803d; }
+.status-inactive { background-color: #fee2e2; color: #b91c1c; }

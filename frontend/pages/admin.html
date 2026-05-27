@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">GestionApp — Admin</a>
+        <div class="navbar-right">
+            <span class="navbar-user">Admin: <strong id="admin-name">...</strong></span>
+            <button class="btn btn-danger" id="btn-logout">Salir</button>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <div class="admin-header">
+            <h1 class="page-title" style="margin-bottom:0;">Gestión de Usuarios</h1>
+
+            <div class="d-flex gap-2 align-center">
+                <div class="search-bar">
+                    <input
+                        class="search-input"
+                        type="text"
+                        id="search-input"
+                        placeholder="Buscar por nombre o email..."
+                    >
+                </div>
+                <button class="btn btn-primary" id="btn-create">+ Crear usuario</button>
+            </div>
+        </div>
+
+        <div id="error-message" class="alert alert-error" style="display:none;"></div>
+
+        <div class="table-container">
+            <table class="users-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="users-tbody">
+                    <tr>
+                        <td colspan="6" class="text-center text-muted" style="padding:2rem;">
+                            Cargando usuarios...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Modal crear / editar usuario -->
+    <div class="modal-overlay" id="user-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">Crear Usuario</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+
+            <div id="form-error" class="alert alert-error" style="display:none;"></div>
+
+            <form id="user-form">
+                <div class="form-group">
+                    <label class="form-label" for="form-name">Nombre</label>
+                    <input class="form-control" type="text" id="form-name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="form-email">Email</label>
+                    <input class="form-control" type="email" id="form-email" required>
+                </div>
+                <div class="form-group" id="password-field">
+                    <label class="form-label" for="form-password">Contraseña</label>
+                    <input class="form-control" type="password" id="form-password" minlength="6">
+                </div>
+                <div class="d-flex gap-2" style="margin-top:1rem;">
+                    <button type="button" class="btn btn-outline" style="flex:1;" onclick="closeModal()">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary" style="flex:1;" id="btn-save">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../js/admin.js"></script>
+</body>
+</html>
