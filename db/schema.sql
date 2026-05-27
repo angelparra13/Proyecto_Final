@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS sessions (
                             ON DELETE CASCADE,
     token      VARCHAR(512) NOT NULL UNIQUE,                   -- JWT emitido (único por sesión)
     ip_address VARCHAR(45),                                    -- IP desde donde se conectó (IPv4 o IPv6)
-    user_agent VARCHAR(255),                                   -- Navegador/dispositivo usado
+    user_agent VARCHAR(512),                                   -- Navegador/dispositivo usado
     created_at TIMESTAMP    NOT NULL DEFAULT NOW(),            -- Cuándo se inició la sesión
     expires_at TIMESTAMP    NOT NULL,                          -- Cuándo vence el token
     is_active  BOOLEAN      NOT NULL DEFAULT TRUE              -- TRUE=sesión vigente, FALSE=cerrada/expirada
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS audit_log (
     target_user  BIGINT                                        -- Usuario sobre quien se ejecutó la acción
                              REFERENCES users(id)
                              ON DELETE SET NULL,
-    action       VARCHAR(50) NOT NULL CHECK (action IN (       -- Tipo de acción (valores fijos)
+    action       VARCHAR(100) NOT NULL CHECK (action IN (       -- Tipo de acción (valores fijos)
                      'REGISTER',           -- Usuario se registró
                      'LOGIN',              -- Usuario inició sesión
                      'LOGOUT',             -- Usuario cerró sesión
@@ -109,3 +109,6 @@ CREATE INDEX IF NOT EXISTS idx_audit_performed_by ON audit_log(performed_by); --
 CREATE INDEX IF NOT EXISTS idx_audit_target_user  ON audit_log(target_user);  -- Ver acciones sobre un usuario
 CREATE INDEX IF NOT EXISTS idx_audit_action       ON audit_log(action);       -- Filtrar por tipo de acción
 CREATE INDEX IF NOT EXISTS idx_audit_created_at   ON audit_log(created_at);   -- Ordenar por fecha
+
+ALTER TABLE sessions
+ALTER COLUMN user_agent TYPE TEXT;
